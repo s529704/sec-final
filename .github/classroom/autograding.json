@@ -1,0 +1,31 @@
+{
+    "tests": [
+        {
+            "name": "Input: 10",
+            "run": "gradle clean run",
+	    "input": "10",
+	    "output": "true",
+	    "comparison":"included",
+            "timeout": 10,
+            "points": 1
+        },
+        {
+            "name": "Input: 15",
+            "run": "gradle clean run",
+	    "input": "15",
+	    "output": "true",
+	    "comparison":"included",
+            "timeout": 10,
+            "points": 1
+        },
+        {
+            "name": "Input: 42",
+            "run": "gradle clean run",
+	    "input": "42",
+	    "output": "false",
+	    "comparison":"included",
+            "timeout": 10,
+            "points": 1
+        }
+    ]
+}
