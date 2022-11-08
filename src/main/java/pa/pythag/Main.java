@@ -1,8 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**
+ * Class: 44-242 Data Structures
+ * Author: Dawson McConnell
+ * Description: Programming App 9
+ * Due: 11-13-22
+ * I pledge that I have completed the programming assignment independently.
+   I have not copied the code from a student or any source.
+   I have not given my code to any other student.
+   I have not given my code to any other student and will not share this code
+   with anyone under any circumstances.
+*/
 package pa.pythag;
 import java.util.Scanner;
 /**
@@ -16,20 +22,24 @@ public class Main {
      */
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Enter a number: ");
+        System.out.print("Enter a number: ");
         int number = scan.nextInt();
-        System.out.println(triple(number));
+        triple(number);
     }
-    public static boolean triple(int n){
-        int num = (n*n)-((n-1)*(n-1));
-        System.out.println(num);
-        //double check = Math.sqrt(num);
-        //if(check - Math.floor(num) != 0){
-        //    return false;
-        //}
-        //else 
-            return true;
-    
-}
+    public static void triple(int n){
+        int num  = n/5;
+        int sideOne = num * 3;
+        int sideTwo = num * 4;
+        int oneSq = sideOne * sideOne;
+        int twoSq = sideTwo * sideTwo;
+        int thrSq = n*n;
+        if(oneSq + twoSq == thrSq){
+            System.out.print("true: ");
+            System.out.print(sideOne + " ");
+            System.out.print(sideTwo + " ");
+        }
+        else
+            System.out.println("false");
+    }
 }
 
