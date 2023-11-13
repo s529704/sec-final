@@ -62,21 +62,17 @@ public class Main {
         int a = 0;
         int b = 0;
         for (int i = 0; i<c; i++){
-            
             for(int j = 0; j<c; j++){
                 if((a*a)+(b*b)==(c*c)){
                 System.out.println("True");
                 System.out.println("Other numbers in triple: " + a + " " + b);
                 
-                b++;
-
-
-            
-            
-            }
+                b++;            
+                }
             return true;
             }
             a++;
+            b=0;
         }
         return false;
     }
