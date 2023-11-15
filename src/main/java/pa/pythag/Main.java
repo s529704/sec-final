@@ -22,20 +22,22 @@ public class Main {
      */
     public static void main(String[] args) {
         //Scanner scan = new Scanner(System.in);        Old code; would take an int argument,  
-        //System.out.print("Enter a number: ");         but breaks (throws inputmismatchexception)
+        //System.out.print("Enter a number: ");         but breaks (throws input mismatch exception)
         //int number = scan.nextInt();                  if the user goes rogue (or dumb) and enters 
         //triple(number);                               something that isn't an int
         boolean intCheck = false;
-        while (intCheck == false){
+        while (!intCheck){
            try {
                 Scanner scan = new Scanner(System.in);  //New code, will check and handle rogue/dumb users and send them 
                 System.out.println("Enter a an integer to see if it is a pythagorean triple: "); //back to the beginning and try again
                 int number = scan.nextInt();
                 boolean tripleCheck = false;
-                while(tripleCheck == false){
+                while(!tripleCheck){
                     tripleCheck = triple(number);
-                    System.out.println("That was not apart of a pythagorean triple. Try again.");
-                    number = scan.nextInt();
+                    if (!tripleCheck){
+                        System.out.println("That was not apart of a pythagorean triple. Try again.");
+                        number = scan.nextInt();
+                    }
                 }
                 intCheck = true;
             } 
@@ -59,20 +61,19 @@ public class Main {
         //}
         //else
         //    System.out.println("false");
-        int a = 0;
-        int b = 0;
+        int a = 1;
+        int b = 1;
         for (int i = 0; i<c; i++){
             for(int j = 0; j<c; j++){
                 if((a*a)+(b*b)==(c*c)){
-                System.out.println("True");
-                System.out.println("Other numbers in triple: " + a + " " + b);
-                
-                b++;            
+                    System.out.println("True");
+                    System.out.println("Other numbers in triple: " + a + " " + b);
+                    return true;
                 }
-            return true;
+                b++;            
             }
             a++;
-            b=0;
+            b=1;
         }
         return false;
     }
