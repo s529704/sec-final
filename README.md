@@ -23,7 +23,7 @@ Enter a number: 15
 true: 9 12
 ```
 
-Run 3:
+Run 3
 ```text
 Enter a number: 42
 false
