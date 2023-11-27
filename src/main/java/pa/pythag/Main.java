@@ -10,6 +10,7 @@
    with anyone under any circumstances.
 */
 package pa.pythag;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 /**
  *
@@ -41,9 +42,12 @@ public class Main {
                 }
                 intCheck = true;
             } 
-            catch (Exception e) {
+            catch (InputMismatchException e) {
                 System.out.println("You did not enter an integer. Please try again, entering an integer this time dingus.");
-            } 
+            }
+           catch (Exception e){
+               System.out.println(e);
+           }
         }
         
     }
