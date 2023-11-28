@@ -1,0 +1,190 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Main</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">pa.pythag</a>
+</div>
+
+<h1>Coverage Summary for Class: Main (pa.pythag)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Main</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    33.3%
+  </span>
+  <span class="absValue">
+    (1/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    38.7%
+  </span>
+  <span class="absValue">
+    (12/31)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/**
+&nbsp; * Class: 44-242 Data Structures
+&nbsp; * Author: Dawson McConnell
+&nbsp; * Description: Programming App 9
+&nbsp; * Due: 11-13-22
+&nbsp; * I pledge that I have completed the programming assignment independently.
+&nbsp;   I have not copied the code from a student or any source.
+&nbsp;   I have not given my code to any other student.
+&nbsp;   I have not given my code to any other student and will not share this code
+&nbsp;   with anyone under any circumstances.
+&nbsp;*/
+&nbsp;package pa.pythag;
+&nbsp;import java.util.InputMismatchException;
+&nbsp;import java.util.Scanner;
+&nbsp;/**
+&nbsp; *
+&nbsp; * @author nathan
+&nbsp; */
+<b class="nc">&nbsp;public class Main {</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @param args the command line arguments
+&nbsp;     */
+&nbsp;    public static void main(String[] args) {
+&nbsp;        //Scanner scan = new Scanner(System.in);        Old code; would take an int argument,  
+&nbsp;        //System.out.print(&quot;Enter a number: &quot;);         but breaks (throws input mismatch exception)
+&nbsp;        //int number = scan.nextInt();                  if the user goes rogue (or dumb) and enters 
+&nbsp;        //triple(number);                               something that isn&#39;t an int
+<b class="nc">&nbsp;        boolean intCheck = false;</b>
+<b class="nc">&nbsp;        while (!intCheck){</b>
+&nbsp;           try {
+<b class="nc">&nbsp;                Scanner scan = new Scanner(System.in);  //New code, will check and handle rogue/dumb users and send them </b>
+<b class="nc">&nbsp;                System.out.println(&quot;Enter a an integer to see if it is a pythagorean triple: &quot;); //back to the beginning and try again</b>
+<b class="nc">&nbsp;                int number = scan.nextInt();</b>
+<b class="nc">&nbsp;                boolean tripleCheck = false;</b>
+<b class="nc">&nbsp;                while(!tripleCheck){</b>
+<b class="nc">&nbsp;                    tripleCheck = triple(number);</b>
+<b class="nc">&nbsp;                    if (!tripleCheck){</b>
+<b class="nc">&nbsp;                        System.out.println(&quot;That was not apart of a pythagorean triple. Try again.&quot;);</b>
+<b class="nc">&nbsp;                        number = scan.nextInt();</b>
+&nbsp;                    }
+&nbsp;                }
+<b class="nc">&nbsp;                intCheck = true;</b>
+&nbsp;            } 
+<b class="nc">&nbsp;            catch (InputMismatchException e) {</b>
+<b class="nc">&nbsp;                System.out.println(&quot;You did not enter an integer. Please try again, entering an integer this time dingus.&quot;);</b>
+&nbsp;            }
+<b class="nc">&nbsp;           catch (Exception e){</b>
+<b class="nc">&nbsp;               System.out.println(e);</b>
+<b class="nc">&nbsp;           }</b>
+&nbsp;        }
+&nbsp;        
+<b class="nc">&nbsp;    }</b>
+&nbsp;    public static boolean triple(int c){
+&nbsp;        //int num  = n/5;
+&nbsp;        //int sideOne = num * 3;
+&nbsp;        //int sideTwo = num * 4;            old code; would only actually return the correct output/calculation
+&nbsp;        //int oneSq = sideOne * sideOne;    if the pythagorean triple followed the &quot;3 4 5&quot; rule (multiples of 3, 4, and 5
+&nbsp;        //int twoSq = sideTwo * sideTwo;    work if multiplied by the same matching multiple) but there are triples
+&nbsp;        //int thrSq = n*n;                  that exist that do not follow that rule, therefore there was an availability
+&nbsp;        //if(oneSq + twoSq == thrSq){       issue.
+&nbsp;        //    System.out.print(&quot;true: &quot;);
+&nbsp;        //    System.out.print(sideOne + &quot; &quot;);
+&nbsp;        //    System.out.print(sideTwo + &quot; &quot;);
+&nbsp;        //}
+&nbsp;        //else
+&nbsp;        //    System.out.println(&quot;false&quot;);
+<b class="fc">&nbsp;        int a = 1;</b>
+<b class="fc">&nbsp;        int b = 1;</b>
+<b class="fc">&nbsp;        for (int i = 0; i&lt;c; i++){</b>
+<b class="fc">&nbsp;            for(int j = 0; j&lt;c; j++){</b>
+<b class="fc">&nbsp;                if((a*a)+(b*b)==(c*c)){</b>
+<b class="fc">&nbsp;                    System.out.println(&quot;True&quot;);</b>
+<b class="fc">&nbsp;                    System.out.println(&quot;Other numbers in triple: &quot; + a + &quot; &quot; + b);</b>
+<b class="fc">&nbsp;                    return true;</b>
+&nbsp;                }
+<b class="fc">&nbsp;                b++;            </b>
+&nbsp;            }
+<b class="fc">&nbsp;            a++;</b>
+<b class="fc">&nbsp;            b=1;</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-28 14:41</div>
+</div>
+</body>
+</html>
